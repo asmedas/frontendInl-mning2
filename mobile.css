@@ -1,0 +1,14 @@
+/* Responsive design for smaller screens */
+@media (max-width: 870px) {
+    .sidebar{
+        width: 80px;
+    }
+    button{
+        font-size: 8px;
+        width: 80px;
+    }
+    #contentMenu{
+        font-size: 8px;
+        width: 100px;
+    }
+}
