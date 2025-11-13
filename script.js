@@ -4,27 +4,20 @@ const componentsButton = document.getElementById('components');
 const guidelinesButton = document.getElementById('guidelines');
 const headersButton = document.getElementById('headers');
 
-homeButton.addEventListener('click', () => {
-    changeContent('home');
+document.addEventListener('click', (e) => {
+    const page = e.target.dataset.page;
+    if (page) {
+        changeContent(page);
+    }
 });
 
-startButton.addEventListener('click', () => {
-    changeContent('start');
-});
-componentsButton.addEventListener('click', () => {
-    changeContent('components');
-});
-guidelinesButton.addEventListener('click', () => {
-    changeContent('guidelines');
-});
-var componentsopen = 0;
 
 function changeContent(page){
     let mainDiv = document.getElementById('content');
 
     switch(page){
         case 'home':
-            mainDiv.innerHTML = `<h1>Wigells StyleGuide</h1>`;
+            mainDiv.innerHTML = `<h1 id="welcomePage">Wigells StyleGuide</h1>`;
             break;
         case 'start':
             mainDiv.innerHTML = `<h1>Getting Started</h1><p>Here is how to get started...</p>`;
@@ -38,7 +31,6 @@ function changeContent(page){
                     </thead>
                     <tbody>
                         <tr><td><button id="headers">Headers</button></td></tr>
-                        <tr><td><button id="text">Text</button></td></tr>
                         <tr><td><button id="buttons">Buttons</button></td></tr>
                         <tr><td><button id="tables">Tables</button></td></tr>
                         <tr><td><button id="nav">Navigation</button></td></tr>
@@ -53,32 +45,18 @@ function changeContent(page){
                 </div>
             </div>
         `;
-            const headersButton = document.getElementById('headers');
-            headersButton.addEventListener('click', () => changeInnerContent('headers'));
-            const textButton = document.getElementById('text');
-            textButton.addEventListener('click', () => changeInnerContent('text'));
-            const buttonsButton = document.getElementById('buttons');
-            buttonsButton.addEventListener('click', () => changeInnerContent('buttons'));
-            const tablesButton = document.getElementById('tables');
-            tablesButton.addEventListener('click', () => changeInnerContent('tables'));
-            const navButton = document.getElementById('nav');
-            navButton.addEventListener('click', () => changeInnerContent('nav'));
-            const messagesButton = document.getElementById('messages');
-            messagesButton.addEventListener('click', () => changeInnerContent('messages'));
-            const loadingButton = document.getElementById('loading');
-            loadingButton.addEventListener('click', () => changeInnerContent('loading'));
-            const panelsButton = document.getElementById('panels');
-            panelsButton.addEventListener("click", () => changeInnerContent("panels"));
-            const formsButton = document.getElementById('forms');
-            formsButton.addEventListener("click", () => changeInnerContent("forms"));
-            const colorSchemaButton = document.getElementById('colorSchema');
-            colorSchemaButton.addEventListener("click", () => changeInnerContent("colorSchema"));
+            document.addEventListener('click', (e) => {
+                if (e.target.matches('#contentMenu button')) {
+                    changeInnerContent(e.target.id);
+                }
+            });
+
             break;
         case 'guidelines':
             mainDiv.innerHTML = `<h1>Guidelines</h1><p>Design guidelines...</p>`;
             break;
         default:
-            mainDiv.innerHTML = `<h1>Wigells StyleGuide</h1>`;
+            mainDiv.innerHTML = `<h1 id="welcomePage">Wigells StyleGuide</h1>`;
             break;
     }
 }
@@ -89,15 +67,41 @@ function changeInnerContent(content){
     console.log('Component Div:', componentDiv);
     switch(content){
         case 'headers':
-            componentDiv.innerHTML = `<h2>Headers Component</h2><p>Details about headers...</p>`;
+            componentDiv.innerHTML = `
+                <h1>Headers Components</h1>
+                <p>This section describes how the headers should look and be used according to our style guide.</p>
+
+                <br><br>
+                <h1>Header 1</h1>
+                <p>This is an example of an h1 header, which should only be used once per page as the main title.</p>
+
+                <h2>Header 2</h2>
+                <p>This is an example of an h2 header, used to define major sections.</p>
+
+                <h3>Header 3</h3>
+                <p>This is an example of an h3 header, used for subsections under an h2.</p>
+
+                <h4>Header 4</h4>
+                <p>This is an example of an h4 header, typically used for smaller subsections.</p>
+
+                <br>
+                <p>This is an example of normal body text that follows the headers.</p>
+                <p>Body text is used for all general content and must remain consistent in size, line-height, and color.</p>
+            `;
             console.log('Headers content loaded');
             break;
-        case 'text':
-            componentDiv.innerHTML = `<h2>Text Component</h2><p>Details about text...</p>`;
-            console.log('Text content loaded');
-            break;
         case 'buttons':
-            componentDiv.innerHTML = `<h2>Buttons Component</h2><p>Details about buttons...</p>`;
+            componentDiv.innerHTML = `
+            <h1>Buttons Component</h1><br>
+            <button class="standard">Standard Button</button><br>
+            <p>This is an example of a standard button used for general actions.</p><br>
+            <button class="functional">Functional Button</button>
+            <p>This is an example of a functional button used for main actions.</p><br>
+            <button class="positive">Positive Button</button>
+            <p>This is an example of a positive button used for confirming actions.</p><br>
+            <button class="negative">Negative Button</button>
+            <p>This is an example of a negative button used for canceling or destructive actions.</p>
+            `;
             console.log('Buttons content loaded');
             break;
         case 'tables':
@@ -152,6 +156,7 @@ function toggleSidebar() {
         contentMenu.style.display = "none";
     }
 }
+
 
 showSidebarButton.addEventListener('click', toggleSidebar);
 closeSidebarButton.addEventListener('click', toggleSidebar);
