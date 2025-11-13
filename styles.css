@@ -1,0 +1,112 @@
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+}
+
+button{
+    width: 100%;
+    background: rgb(55, 55, 56);
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 4px;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+button:hover{
+    background: rgb(75, 75, 76);
+    cursor: pointer;
+}
+#content {
+    flex: 1;
+    background: #f4f4f4;
+    overflow: hidden;
+}
+#show-sidebar{
+    background-color: rgb(35, 35, 36);;
+}
+
+/* Styles for the sidebar */
+.sidebar{
+    width: 10vw;
+    background: rgb(35, 35, 36);
+    color: white;
+    border-right: black 2px solid;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* Styles for the content menu */
+#contentMenu {
+    width: 160px;
+    max-height: 100vh;
+    background: rgb(35, 35, 36);
+    color: white;
+    border-collapse: collapse;
+    display: block; 
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
+
+#contentMenu th {
+    position: sticky;
+    top: 0;
+    background: rgb(35, 35, 36);
+    padding: 15px;
+    box-shadow: 0 2px 0 black;
+    text-align: left;
+    z-index: 1;
+}
+
+#contentMenu td {
+    padding: 5px;
+    width: 100%;
+}
+
+#contentMenu button {
+    width: 100%;
+    background: rgb(55, 55, 56);
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 4px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#contentMenu button:hover {
+    background: rgb(75, 75, 76);
+}
+
+/* Wrapper of contentMenu and the content we choose
+ like headers or text under "Components"*/
+#componentsWrapper{
+    display: flex;
+    height: 100%;
+}
+#componentContent {
+  flex: 1;
+  background: #f4f4f4;
+  padding: 20px;
+  overflow-y: auto;
+  color: black; 
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 870px) {
+    .sidebar{
+        width: 13cqw;
+    }
+    button{
+        font-size: 8px;
+        width: 100%;
+    }
+    #contentMenu{
+        font-size: 8px;
+        width: 100px;
+    }
+}
