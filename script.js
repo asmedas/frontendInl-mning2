@@ -403,19 +403,208 @@ button.negative:hover{
             console.log('Navigation content loaded');
             break;
         case 'messages':
-            componentDiv.innerHTML = `<h2>Messages Component</h2><p>Details about messages...</p>`;
+            componentDiv.innerHTML = `
+            <h2>Meddelanden & Varningar</h2>
+            <p>How different kinds of messages and warnings are displayed to the user during events<p>
+
+            <div class="message success">
+                Succeeded.
+            </div>
+
+            <div class="message warning">
+                Warning: You're leaving the site without saving.
+            </div>
+
+            <div class="message error">
+                An error has occured: could not connect to the server.
+            </div>
+
+            <div class="message info">
+                Info: A new version is available.
+            </div>
+            <pre>
+                <h3>CSS</h3>
+                <code>
+.message {
+    padding: 15px;
+    border-radius: 4px;
+    margin: 15px 0;
+    color: black;
+    font-size: 1rem;
+}
+
+.message.success {
+    background-color: rgb(9, 167, 9);
+}
+
+.message.warning {
+    background-color: yellow;
+}
+
+.message.error {
+    background-color: red;
+    color: black;
+}
+.message.info {
+    background-color: rgb(175, 172, 172);
+    color: black;
+}
+                </code>
+            </pre>
+            `;
             console.log('Messages content loaded');
             break;
         case 'loading':
-            componentDiv.innerHTML = `<h2>Loading Icons Component</h2><p>Details about loading icons...</p>`;
+            componentDiv.innerHTML = `
+            <h2>Loading Icon</h2>
+            <p>Shows when content is being loaded</p>
+
+            <div class="loader"></div>
+            <p>Loading...</p>
+            <pre>
+                <h3>CSS</h3>
+                <code>
+.loader {
+    border: 4px solid #2e86b9;
+    border-top: 4px solid var(--color-dark-mid);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 0.8s linear infinite;
+    margin: 20px 0;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+                </code>
+            </pre>
+
+            `;
             console.log('Loading Icons content loaded');
             break;
         case 'panels':
-            componentDiv.innerHTML = `<h2>Panels Component</h2><p>Details about panels...</p>`;
+            componentDiv.innerHTML = `
+            <h2>Paneler</h2>
+            <p>A clearly defined section of the page that contains related information.
+            A neutral one is white, a positive one is green, and a negative one is red.</p>
+
+            <div class="panel neutral">
+                <h3>Neutral panel</h3>
+                <p>This is a neutral, informational panel></p>
+            </div><br>
+
+            <div class="panel positive">
+                <h3>Positiv panel</h3>
+                <p>Positive content is being put here</p>
+            </div><br>
+
+            <div class="panel negative">
+                <h3>Negativ panel</h3>
+                <p>Negative content is being put here</p>
+            </div><br>
+            <pre>
+                <h3>CSS</h3>
+                <code>
+.panel {
+    padding: 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+    display: inline-block;
+    width: auto;
+}
+
+.panel.neutral {
+    background-color: white;
+    border-left: 6px solid var(--color-dark-mid);
+}
+
+.panel.positive {
+    background-color: rgb(138, 240, 138);
+    color: black;
+    border-left: 6px solid var(--color-positive-dark);
+}
+
+.panel.negative {
+    background-color: rgb(235, 117, 117);
+    color: black;
+    border-left: 6px solid var(--color-negative-dark);
+}
+                </code>
+            </pre>
+            `;
             console.log('Panels content loaded');
             break;
         case 'forms':
-            componentDiv.innerHTML = `<h2>Forms Component</h2><p>Details about forms...</p>`;
+            componentDiv.innerHTML = `
+            <h2>Form</h2>
+            <p>How a form will look with the CSS. The form is used to gather information from a questionaire
+            and then send it in to the backend.</p>
+            <form>
+                <div class="form-group">
+                    <label for="name">Namn</label>
+                    <input type="text" id="name" placeholder="Type your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Meddelande</label>
+                    <textarea id="message" rows="4" placeholder="Write something..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Kön</label>
+                    <label><input type="radio" name="gender" value="man"> Man</label>
+                    <label><input type="radio" name="gender" value="woman"> Kvinna</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Intressen</label>
+                    <label><input type="checkbox" value="sports"> Sports</label>
+                    <label><input type="checkbox" value="music"> Music</label>
+                    <label><input type="checkbox" value="programming"> Programming</label>
+                </div>
+
+                <button class="positive">Send</button>
+            </form>
+            <pre>
+                <h3>CSS</h3>
+                <code>
+form {
+    max-width: 400px;
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+                </code>
+            </pre>
+
+            `;
             console.log('Forms content loaded');
             break;
         case 'colorSchema':
