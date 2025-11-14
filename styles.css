@@ -4,6 +4,79 @@ body{
     height: 100vh;
     display: flex;
 }
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+p {
+    font-size: 1rem;
+}
+pre{
+    background: rgb(55, 55, 56);
+    width: auto;
+    color: orange;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: hidden;
+}
+
+.tableLong {
+    width: auto;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+.tableLong th, .tableLong td {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.tableLong tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.tableLong th {
+    background-color: var(--color-dark-mid);
+    color: rgb(0, 0, 0);
+}
+
+.table-compact {
+    width: auto;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.85rem;
+}
+
+.table-compact th, .table-compact td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: left;
+}
+
+.table-compact th {
+    background-color: var(--color-dark-mid);
+    color: rgb(0, 0, 0);
+}
+.table-compact tr:nth-child(even){
+    background-color: #00000031;
+}
+
+
 
 #welcomePage {
     text-align: center;
