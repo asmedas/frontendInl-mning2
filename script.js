@@ -1,9 +1,3 @@
-const homeButton = document.getElementById('home');
-const startButton = document.getElementById('start');
-const componentsButton = document.getElementById('components');
-const guidelinesButton = document.getElementById('guidelines');
-const headersButton = document.getElementById('headers');
-
 document.addEventListener('click', (e) => {
     const page = e.target.dataset.page;
     if (page) {
@@ -25,23 +19,19 @@ function changeContent(page){
         case 'components':
             mainDiv.innerHTML = `
             <div id="componentsWrapper">
-                <table id="contentMenu" class="contentMenu">
-                    <thead>
-                        <tr><th>Components</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><button id="headers">Headers</button></td></tr>
-                        <tr><td><button id="buttons">Buttons</button></td></tr>
-                        <tr><td><button id="tables">Tables</button></td></tr>
-                        <tr><td><button id="nav">Navigation</button></td></tr>
-                        <tr><td><button id="messages">Messages</button></td></tr>
-                        <tr><td><button id="loading">Loading Icons</button></td></tr>
-                        <tr><td><button id="panels">Panels</button></td></tr>
-                        <tr><td><button id="forms">Forms</button></td></tr>
-                        <tr><td><button id="colorSchema">ColorSchema</button></td></tr>
-                        <tr><td><button id="mobile">Mobile format</button></td></tr>
-                    </tbody>
-                </table>
+                <div id="contentMenu">
+                    <div class="menu-header">Components</div>
+                        <button id="headers">Headers</button>
+                        <button id="buttons">Buttons</button>
+                        <button id="tables">Tables</button>
+                        <button id="nav">Navigation</button>
+                        <button id="messages">Messages</button>
+                        <button id="loading">Loading Icons</button>
+                        <button id="panels">Panels</button>
+                        <button id="forms">Forms</button>
+                        <button id="colorSchema">ColorSchema</button>
+                        <button id="mobile">Mobile format</button>
+                </div>   
                 <div id="componentContent">
                 </div>
             </div>
@@ -130,7 +120,7 @@ pre{
         case 'buttons':
             componentDiv.innerHTML = `
             <h1>Buttons Component</h1><br>
-            <button class="standard">Standard Button</button><br>
+            <button>Standard Button</button><br>
             <p>This is an example of a standard button used for general actions.</p><br>
             <button class="functional">Functional Button</button>
             <p>This is an example of a functional button used for main actions.</p><br>
@@ -139,6 +129,13 @@ pre{
             <button class="negative">Negative Button</button>
             <p>This is an example of a negative button used for canceling or destructive actions.</p>
             <pre>
+                <h3>HTML</h3>
+                <code>
+&#60;button&#62;Standard Button&#60;/button&#62;
+&#60;button class="functional"&#62;Functional Button&#60;/button&#62;
+&#60;button class="positive"&#62;Positive Button&#60;/button&#62;
+&#60;button class="negative"&#62;Negative Button&#60;/button&#62;
+                </code>
                 <h3>CSS</h3>
                 <code>
 button{
@@ -160,14 +157,14 @@ button.functional:hover{
     background: rgb(102, 102, 165);
 }
 button.positive{
-    background: rgb(0, 255, 76);
+    background: rgb(138, 240, 138);
     color: black;
 }
 button.positive:hover{
     background: rgba(0, 128, 0, 0.897);
 }
 button.negative{
-    background: red;
+    background: rgb(235, 117, 117);
     color: black;
 }
 button.negative:hover{
@@ -207,6 +204,31 @@ button.negative:hover{
             <p>Above is the table that is used for long lists, where it is easy to find the connected values
             to each, in this case person, seperated cleanly by a line between each row.</p>
             <pre>
+                <h3>HTML</h3>
+                <code>
+&#60;table class="tableLong"&#62;
+    &#60;tr&#62;
+        &#60;th&#62;Name&#60;/th&#62;
+        &#60;th&#62;Last name&#60;/th&#62;
+        &#60;th&#62;Phone&#60;/th&#62;
+    &#60;/tr&#62;
+    &#60;tr&#62;
+        &#60;td&#62;sven&#60;/td&#62;
+        &#60;td&#62;g&#246;ransson&#60;/td&#62;
+        &#60;td&#62;072-3713582&#60;/td&#62;
+    &#60;/tr&#62;
+    &#60;tr&#62;
+        &#60;td&#62;sebbe&#60;/td&#62;
+        &#60;td&#62;nordstr&#246;m&#60;/td&#62;
+        &#60;td&#62;070-4442674&#60;/td&#62;
+    &#60;/tr&#62;
+    &#60;tr&#62;
+        &#60;td&#62;sven&#60;/td&#62;
+        &#60;td&#62;g&#246;ransson&#60;/td&#62;
+        &#60;td&#62;076-3427721&#60;/td&#62;
+    &#60;/tr&#62;
+&#60;/table&#62;
+                </code>
                 <h3>CSS</h3>
                 <code>
 .tableLong {
@@ -227,7 +249,6 @@ button.negative:hover{
 }
 
 .tableLong th {
-    background-color: var(--color-dark-mid);
     color: rgb(0, 0, 0);
 }
                 </code>
@@ -237,38 +258,75 @@ button.negative:hover{
                     <th>Name</th>
                     <th>Last name</th>
                     <th>Phone</th>
-                    <th>Name</th>
-                    <th>Last name</th>
-                    <th>Phone</th>
+                    <th>address</th>
+                    <th>city</th>
+                    <th>country</th>
                 </tr>
                 <tr>
                     <td>sven</td>
                     <td>göransson</td>
                     <td>072-3713582</td>
-                    <td>sven</td>
-                    <td>göransson</td>
-                    <td>072-3713582</td>
+                    <td>russvägen 18</td>
+                    <td>sundsvall</td>
+                    <td>sverige</td>
                 </tr>
                 <tr>
                     <td>sebbe</td>
                     <td>nordström</td>
                     <td>070-4442674</td>
-                    <td>sebbe</td>
-                    <td>nordström</td>
-                    <td>070-4442674</td>
+                    <td>hårdvallsgatan 18</td>
+                    <td>sundsvall</td>
+                    <td>sverige</td>
                 </tr>
                 <tr>
                     <td>sven</td>
                     <td>göransson</td>
                     <td>076-3427721</td>
-                    <td>sven</td>
-                    <td>göransson</td>
-                    <td>076-3427721</td>
+                    <td>kolstavägen 3</td>
+                    <td>sundsvall</td>
+                    <td>sverige</td>
                 </tr>
             </table>
             <p>Above is a table that is used for more coloumns and to easily keep track of what values belong to the
             person we are looking at, every second row is darker.</p>
             <pre>
+                <h3>HTML</h3>
+                <code>
+&#60;table class="table-compact"&#62;
+    &#60;tr&#62;
+        &#60;th&#62;Name&#60;/th&#62;
+        &#60;th&#62;Last name&#60;/th&#62;
+        &#60;th&#62;Phone&#60;/th&#62;
+        &#60;th&#62;address&#60;/th&#62;
+        &#60;th&#62;city&#60;/th&#62;
+        &#60;th&#62;country&#60;/th&#62;
+    &#60;/tr&#62;
+    &#60;tr&#62;
+        &#60;td&#62;sven&#60;/td&#62;
+        &#60;td&#62;g&#246;ransson&#60;/td&#62;
+        &#60;td&#62;072-3713582&#60;/td&#62;
+        &#60;td&#62;russv&#228;gen 18&#60;/td&#62;
+        &#60;td&#62;sundsvall&#60;/td&#62;
+        &#60;td&#62;sverige&#60;/td&#62;
+    &#60;/tr&#62;
+    &#60;tr&#62;
+        &#60;td&#62;sebbe&#60;/td&#62;
+        &#60;td&#62;nordstr&#246;m&#60;/td&#62;
+        &#60;td&#62;070-4442674&#60;/td&#62;
+        &#60;td&#62;h&#229;rdvallsgatan 18&#60;/td&#62;
+        &#60;td&#62;sundsvall&#60;/td&#62;
+        &#60;td&#62;sverige&#60;/td&#62;
+    &#60;/tr&#62;
+    &#60;tr&#62;
+        &#60;td&#62;sven&#60;/td&#62;
+        &#60;td&#62;g&#246;ransson&#60;/td&#62;
+        &#60;td&#62;076-3427721&#60;/td&#62;
+        &#60;td&#62;kolstav&#228;gen 3&#60;/td&#62;
+        &#60;td&#62;sundsvall&#60;/td&#62;
+        &#60;td&#62;sverige&#60;/td&#62;
+    &#60;/tr&#62;
+&#60;/table&#62;
+                </code>
                 <h3>CSS</h3>
                 <code>
 .table-compact {
@@ -285,7 +343,6 @@ button.negative:hover{
 }
 
 .table-compact th {
-    background-color: var(--color-dark-mid);
     color: rgb(0, 0, 0);
 }
 .table-compact tr:nth-child(even){
@@ -307,53 +364,45 @@ button.negative:hover{
             <pre>
                 <h3>HTML</h3>
                 <code>
-&#60;table id="contentMenu" class="contentMenu"&#62;
-    &#60;thead&#62;
-        &#60;tr&#62;&#60;th&#62;Components&#60;/th&#62;&#60;/tr&#62;
-    &#60;/thead&#62;
-    &#60;tbody&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="headers"&#62;Headers&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="buttons"&#62;Buttons&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="tables"&#62;Tables&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="nav"&#62;Navigation&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="messages"&#62;Messages&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="loading"&#62;Loading Icons&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="panels"&#62;Panels&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="forms"&#62;Forms&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-        &#60;tr&#62;&#60;td&#62;&#60;button id="colorSchema"&#62;ColorSchema&#60;/button&#62;&#60;/td&#62;&#60;/tr&#62;
-    &#60;/tbody&#62;
-&#60;/table&#62;
+&#60;div id="contentMenu"&#62;
+    &#60;div class="menu-header"&#62;Components&#60;/div&#62;
+        &#60;button id="headers"&#62;Headers&#60;/button&#62;
+        &#60;button id="buttons"&#62;Buttons&#60;/button&#62;
+        &#60;button id="tables"&#62;Tables&#60;/button&#62;
+        &#60;button id="nav"&#62;Navigation&#60;/button&#62;
+        &#60;button id="messages"&#62;Messages&#60;/button&#62;
+        &#60;button id="loading"&#62;Loading Icons&#60;/button&#62;
+        &#60;button id="panels"&#62;Panels&#60;/button&#62;
+        &#60;button id="forms"&#62;Forms&#60;/button&#62;
+        &#60;button id="colorSchema"&#62;ColorSchema&#60;/button&#62;
+        &#60;button id="mobile"&#62;Mobile format&#60;/button&#62;
+&#60;/div&#62;  
                 </code>
                 <h3>CSS</h3>
                 <code>
 #contentMenu {
-    width: 145px;
+    width: 13vw;
+    max-width: 145px;
     max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     background: rgb(35, 35, 36);
     color: white;
-    border-collapse: collapse;
-    display: block; 
-    overflow-y: auto;
-    overflow-x: hidden; 
 }
 
-#contentMenu th {
+.menu-header {
+    font-size: 1rem;
+    width: 100%;
     position: sticky;
     top: 0;
     background: rgb(35, 35, 36);
     padding: 15px;
     box-shadow: 0 2px 0 black;
-    text-align: left;
-    z-index: 1;
-}
-
-#contentMenu td {
-    padding: 5px;
-    width: 100%;
+    z-index: 10;
 }
 
 #contentMenu button {
-    width: 100%;
+    width: 90%;
     background: rgb(55, 55, 56);
     border: none;
     padding: 10px;
@@ -361,6 +410,7 @@ button.negative:hover{
     border-radius: 4px;
     text-align: left;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 #contentMenu button:hover {
@@ -423,6 +473,24 @@ button.negative:hover{
                 Info: A new version is available.
             </div>
             <pre>
+                <h3>HTML</h3>
+                <code>
+&#60;div class="message success"&#62;
+    Succeeded.
+&#60;/div&#62;
+
+&#60;div class="message warning"&#62;
+    Warning: You're leaving the site without saving.
+&#60;/div&#62;
+
+&#60;div class="message error"&#62;
+    An error has occured: could not connect to the server.
+&#60;/div&#62;
+
+&#60;div class="message info"&#62;
+    Info: A new version is available.
+&#60;/div&#62;
+                </code>
                 <h3>CSS</h3>
                 <code>
 .message {
@@ -431,10 +499,12 @@ button.negative:hover{
     margin: 15px 0;
     color: black;
     font-size: 1rem;
+    display: inline-block;
+    width: auto;
 }
 
 .message.success {
-    background-color: rgb(9, 167, 9);
+    background-color: rgb(138, 240, 138);
 }
 
 .message.warning {
@@ -442,7 +512,7 @@ button.negative:hover{
 }
 
 .message.error {
-    background-color: red;
+    background-color: rgb(235, 117, 117);
     color: black;
 }
 .message.info {
@@ -462,6 +532,10 @@ button.negative:hover{
             <div class="loader"></div>
             <p>Loading...</p>
             <pre>
+                <h3>HTML</h3>
+                <code>
+&#60;div class="loader"&#62;&#60;/div&#62;
+                </code>
                 <h3>CSS</h3>
                 <code>
 .loader {
@@ -504,6 +578,12 @@ button.negative:hover{
                 <p>Negative content is being put here</p>
             </div><br>
             <pre>
+                <h3>HTML</h3>
+                <code>
+&#60;div class="panel neutral"&#62;&#60;/div&#62;
+&#60;div class="panel positive"&#62;&#60;/div&#62;
+&#60;div class="panel negative"&#62;&#60;/div&#62;
+                </code>
                 <h3>CSS</h3>
                 <code>
 .panel {
@@ -567,6 +647,31 @@ button.negative:hover{
                 <button class="positive">Send</button>
             </form>
             <pre>
+                <h3>HTML</h3>
+                <code>
+&#60;div class="form-group"&#62;
+    &#60;label for="name"&#62;Namn&#60;/label&#62;
+    &#60;input type="text" id="name" placeholder="Type your name"&#62;
+&#60;/div&#62;
+
+&#60;div class="form-group"&#62;
+    &#60;label for="message"&#62;Meddelande&#60;/label&#62;
+    &#60;textarea id="message" rows="4" placeholder="Write something..."&#62;&#60;/textarea&#62;
+&#60;/div&#62;
+
+&#60;div class="form-group"&#62;
+    &#60;label&#62;K&#246;n&#60;/label&#62;
+    &#60;label&#62;&#60;input type="radio" name="gender" value="man"&#62; Man&#60;/label&#62;
+    &#60;label&#62;&#60;input type="radio" name="gender" value="woman"&#62; Kvinna&#60;/label&#62;
+&#60;/div&#62;
+
+&#60;div class="form-group"&#62;
+    &#60;label&#62;Intressen&#60;/label&#62;
+    &#60;label&#62;&#60;input type="checkbox" value="sports"&#62; Sports&#60;/label&#62;
+    &#60;label&#62;&#60;input type="checkbox" value="music"&#62; Music&#60;/label&#62;
+    &#60;label&#62;&#60;input type="checkbox" value="programming"&#62; Programming&#60;/label&#62;
+&#60;/div&#62;
+                </code>
                 <h3>CSS</h3>
                 <code>
 form {
@@ -608,7 +713,66 @@ input[type="checkbox"] {
             console.log('Forms content loaded');
             break;
         case 'colorSchema':
-            componentDiv.innerHTML = `<h2>Color Schema Component</h2><p>Details about color schema...</p>`;
+            componentDiv.innerHTML = `
+            <h2>Color Schema Component</h2>
+            <div class="colorschema primaryDark"></div>
+            <p>This is the primary dark color, used for Sidebar background and the sticky headers.</p><br><br>
+            <div class="colorschema primaryMid"></div>
+            <p>This is the primary Mid color, used for buttons and codeblocks.</p><br><br>
+            <div class="colorschema primaryLight"></div>
+            <p>This is the primary (white) color used for the main contents background.</p><br><br>
+            <div class="colorschema loaderColor"></div>
+            <p>This is the color used for the Icon that is displayed when content is loading.</p><br><br>
+            <div class="colorschema codeBlockText"></div>
+            <p>This is the color that is used for the text when displaying the code examples for each components HTML and CSS.</p><br><br>
+            <div class="colorschema success"></div>
+            <p>This is the color that is used for both the "success" panel and messages.</p><br><br>
+            <div class="colorschema warning"></div>
+            <p>This is the color that is used for both the "warning" panel and messages.</p><br><br>
+            <div class="colorschema error"></div>
+            <p>This is the color that is used for both the "error" panel and messages.</p><br><br>
+            <div class="colorschema info"></div>
+            <p>This is the color that is used or both the "info" panel and messages.</p><br><br>
+            <pre>
+                <h3>CSS</h3>
+                <code>
+.colorschema {
+    width: 100%;
+    height: 60px; 
+}
+
+.colorschema.primaryDark{
+    background-color: rgb(35, 35, 36);
+}
+.colorschema.primaryMid{
+    background-color: rgb(55, 55, 56);
+}
+.colorschema.primaryLight{
+    border: 1px solid #000;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+.colorschema.loaderColor{
+    background-color: #2e86b9;
+}
+.colorschema.codeBlockText{
+    background-color: orange;
+}
+.colorschema.success{
+    background-color: rgb(138, 240, 138);
+}
+.colorschema.warning{
+    background-color: yellow;
+}
+.colorschema.error{
+    background-color: rgb(235, 117, 117);
+}
+.colorschema.info{
+    background-color: rgb(175, 172, 172);
+}
+                </code>
+            </pre>
+            `;
             console.log('Color Schema content loaded');
             break;
         case 'mobile':
@@ -620,11 +784,57 @@ input[type="checkbox"] {
 /* Responsive design for smaller screens */
 @media (max-width: 870px) {
     .sidebar{
+        min-width: 80px;
+    }
+    .menu-header{
+        font-size: 0.9rem;
+    }
+    button{
+        font-size: 0.7rem;
+    }
+    #contentMenu{
+        min-width: 100px;
+    }
+    h1 {
+    font-size: 1.9rem;
+    margin-bottom: 0.5em;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5em;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+    .table-compact {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.70rem;
+    }
+    .tableLong {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.70rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar{
         width: 80px;
     }
     button{
         font-size: 8px;
-        width: 80px;
     }
     #contentMenu{
         font-size: 8px;
@@ -655,8 +865,10 @@ input[type="checkbox"] {
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 0.70rem;
+    word-break: break-word;
+    table-layout: fixed;
     }
-    .table {
+    .tableLong {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;

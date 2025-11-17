@@ -38,7 +38,7 @@ pre{
     width: auto;
     border-collapse: collapse;
     margin: 20px 0;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .tableLong th, .tableLong td {
@@ -52,7 +52,6 @@ pre{
 }
 
 .tableLong th {
-    background-color: var(--color-dark-mid);
     color: rgb(0, 0, 0);
 }
 
@@ -60,7 +59,7 @@ pre{
     width: auto;
     border-collapse: collapse;
     margin: 20px 0;
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 
 .table-compact th, .table-compact td {
@@ -70,7 +69,6 @@ pre{
 }
 
 .table-compact th {
-    background-color: var(--color-dark-mid);
     color: rgb(0, 0, 0);
 }
 .table-compact tr:nth-child(even){
@@ -84,11 +82,12 @@ pre{
     margin: 15px 0;
     color: black;
     font-size: 1rem;
+    display: inline-block;
     width: auto;
 }
 
 .message.success {
-    background-color: rgb(9, 167, 9);
+    background-color: rgb(138, 240, 138);
 }
 
 .message.warning {
@@ -96,7 +95,7 @@ pre{
 }
 
 .message.error {
-    background-color: red;
+    background-color: rgb(235, 117, 117);
     color: black;
 }
 .message.info {
@@ -130,19 +129,16 @@ pre{
 
 .panel.neutral {
     background-color: white;
-    border-left: 6px solid var(--color-dark-mid);
 }
 
 .panel.positive {
     background-color: rgb(138, 240, 138);
     color: black;
-    border-left: 6px solid var(--color-positive-dark);
 }
 
 .panel.negative {
     background-color: rgb(235, 117, 117);
     color: black;
-    border-left: 6px solid var(--color-negative-dark);
 }
 
 /*Styles för form*/
@@ -181,7 +177,7 @@ input[type="checkbox"] {
 
 /*Styles för buttons*/
 button{
-    width: 120px;
+    width: 100%;
     background: rgb(55, 55, 56);
     border: none;
     padding: 10px;
@@ -199,14 +195,14 @@ button.functional:hover{
     background: rgb(102, 102, 165);
 }
 button.positive{
-    background: rgb(0, 255, 76);
+    background: rgb(138, 240, 138);
     color: black;
 }
 button.positive:hover{
     background: rgba(0, 128, 0, 0.897);
 }
 button.negative{
-    background: red;
+    background: rgb(235, 117, 117);
     color: black;
 }
 button.negative:hover{
@@ -233,7 +229,8 @@ button.negative:hover{
 
 /* Styles for the sidebar */
 .sidebar{
-    width: 130px;
+    width: 11vw;
+    max-width: 130px;
     background: rgb(35, 35, 36);
     color: white;
     border-right: black 2px solid;
@@ -244,33 +241,28 @@ button.negative:hover{
 
 /* Styles for the contentMenu(scrollable table) */
 #contentMenu {
-    width: 145px;
+    width: 13vw;
+    max-width: 145px;
     max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     background: rgb(35, 35, 36);
     color: white;
-    border-collapse: collapse;
-    display: block; 
-    overflow-y: auto;
-    overflow-x: hidden; 
 }
 
-#contentMenu th {
+.menu-header {
+    font-size: 1rem;
+    width: 100%;
     position: sticky;
     top: 0;
     background: rgb(35, 35, 36);
     padding: 15px;
     box-shadow: 0 2px 0 black;
-    text-align: left;
-    z-index: 1;
-}
-
-#contentMenu td {
-    padding: 5px;
-    width: 100%;
+    z-index: 10;
 }
 
 #contentMenu button {
-    width: 100%;
+    width: 90%;
     background: rgb(55, 55, 56);
     border: none;
     padding: 10px;
@@ -278,6 +270,7 @@ button.negative:hover{
     border-radius: 4px;
     text-align: left;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 #contentMenu button:hover {
@@ -298,4 +291,39 @@ button.negative:hover{
   padding: 20px;
   overflow-y: auto;
   color: black; 
+}
+
+.colorschema {
+    width: 100%;
+    height: 60px; 
+}
+
+.colorschema.primaryDark{
+    background-color: rgb(35, 35, 36);
+}
+.colorschema.primaryMid{
+    background-color: rgb(55, 55, 56);
+}
+.colorschema.primaryLight{
+    border: 1px solid #000;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+.colorschema.loaderColor{
+    background-color: #2e86b9;
+}
+.colorschema.codeBlockText{
+    background-color: orange;
+}
+.colorschema.success{
+    background-color: rgb(138, 240, 138);
+}
+.colorschema.warning{
+    background-color: yellow;
+}
+.colorschema.error{
+    background-color: rgb(235, 117, 117);
+}
+.colorschema.info{
+    background-color: rgb(175, 172, 172);
 }

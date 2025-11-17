@@ -1,11 +1,57 @@
 /* Responsive design for smaller screens */
 @media (max-width: 870px) {
     .sidebar{
+        min-width: 80px;
+    }
+    .menu-header{
+        font-size: 0.9rem;
+    }
+    button{
+        font-size: 0.7rem;
+    }
+    #contentMenu{
+        min-width: 100px;
+    }
+    h1 {
+    font-size: 1.9rem;
+    margin-bottom: 0.5em;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5em;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+    .table-compact {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.70rem;
+    }
+    .tableLong {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.70rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar{
         width: 80px;
     }
     button{
         font-size: 8px;
-        width: 80px;
     }
     #contentMenu{
         font-size: 8px;
@@ -36,6 +82,8 @@
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 0.70rem;
+    word-break: break-word;
+    table-layout: fixed;
     }
     .tableLong {
     width: 100%;
