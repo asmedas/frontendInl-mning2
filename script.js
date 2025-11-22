@@ -21,16 +21,16 @@ function changeContent(page){
             <div id="componentsWrapper">
                 <div id="contentMenu">
                     <div class="menu-header">Components</div>
-                        <button id="headers">Headers</button>
-                        <button id="buttons">Buttons</button>
-                        <button id="tables">Tables</button>
-                        <button id="nav">Navigation</button>
-                        <button id="messages">Messages</button>
-                        <button id="loading">Loading Icons</button>
-                        <button id="panels">Panels</button>
-                        <button id="forms">Forms</button>
-                        <button id="colorSchema">ColorSchema</button>
-                        <button id="mobile">Mobile format</button>
+                    <button id="headers">Headers</button>
+                    <button id="buttons">Buttons</button>
+                    <button id="tables">Tables</button>
+                    <button id="nav">Navigation</button>
+                    <button id="messages">Messages</button>
+                    <button id="loading">Loading Icons</button>
+                    <button id="panels">Panels</button>
+                    <button id="forms">Forms</button>
+                    <button id="colorSchema">ColorSchema</button>
+                    <button id="mobile">Mobile format</button>
                 </div>   
                 <div id="componentContent">
                 </div>
@@ -619,24 +619,33 @@ button.negative:hover{
             componentDiv.innerHTML = `
             <h2>Form</h2>
             <p>How a form will look with the CSS. The form is used to gather information from a questionaire
-            and then send it in to the backend.</p>
+            and then send it in to the backend.</p><br>
             <form>
+                <h3>class="form-group"</h3>
+                <p>This is the wrapper we use for each label+input to create the default layout of each label+input</p><br>
+                <h3>Text</h3>
+                <p>The design below is for the regular input for text which consists of only one row, used for smaller text inputs.</p><br>
                 <div class="form-group">
                     <label for="name">Namn</label>
                     <input type="text" id="name" placeholder="Type your name">
                 </div>
-
+                <h3>Textarea</h3>
+                <p>The design below is for the textarea, allows for multiple rows of text, in this example 4 rows.</p><br>
                 <div class="form-group">
                     <label for="message">Meddelande</label>
                     <textarea id="message" rows="4" placeholder="Write something..."></textarea>
                 </div>
 
+                <h3>Radiobuttons</h3>
+                <p>The design below is for the radiobuttons, used when the user must pick exactly one option from a list.</p><br>
                 <div class="form-group">
                     <label>Kön</label>
                     <label><input type="radio" name="gender" value="man"> Man</label>
                     <label><input type="radio" name="gender" value="woman"> Kvinna</label>
                 </div>
 
+                <h3>Checkbox</h3>
+                <p>The design below is for the checkboxes, used when multiple options can be selected at the same time.</p><br>
                 <div class="form-group">
                     <label>Intressen</label>
                     <label><input type="checkbox" value="sports"> Sports</label>
@@ -778,7 +787,8 @@ input[type="checkbox"] {
         case 'mobile':
             componentDiv.innerHTML = `
             <h2>Mobile format</h2>
-            <p>To make everything work correctly with the smaller screens such as mobiles use the @Media css below</p>
+            <p>To make everything responsive with the smaller screens such as mobiles use the @Media css below. it is tested and works for all of the phones listed below</p>
+            <img src="./phones.png">
             <pre>
                 <code>
 /* Responsive design for smaller screens */
