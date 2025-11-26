@@ -39,6 +39,7 @@ function changeContent(page){
             document.addEventListener('click', (e) => {
                 if (e.target.matches('#contentMenu button')) {
                     changeInnerContent(e.target.id);
+                    hideMenu();
                 }
             });
 
@@ -912,6 +913,13 @@ function toggleSidebar() {
     if (contentMenu && !isHidden) {
         contentMenu.style.display = "none";
     }
+}
+
+function hideMenu(){
+    sidebar.style.display = "none";
+    showSidebar.style.display = "block";
+    const contentMenu = document.getElementById('contentMenu');
+    contentMenu.style.display = "none";
 }
 
 
