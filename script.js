@@ -2,8 +2,20 @@ document.addEventListener('click', (e) => {
     const page = e.target.dataset.page;
     if (page) {
         changeContent(page);
+        if(page === 'home'){
+            hideMenu();
+        }
     }
 });
+
+document.addEventListener('click', (e) => {
+    const menuBtn = e.target.closest('#contentMenu button');
+    if (menuBtn) {
+        changeInnerContent(menuBtn.id);
+        hideMenu();
+    }
+});
+
 
 
 function changeContent(page){
@@ -36,13 +48,6 @@ function changeContent(page){
                 </div>
             </div>
         `;
-            document.addEventListener('click', (e) => {
-                if (e.target.matches('#contentMenu button')) {
-                    changeInnerContent(e.target.id);
-                    hideMenu();
-                }
-            });
-
             break;
         case 'guidelines':
             mainDiv.innerHTML = `<h1>Guidelines</h1><p>Design guidelines...</p>`;
