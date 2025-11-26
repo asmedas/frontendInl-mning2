@@ -1,8 +1,14 @@
+let componentsOpen = false;
 document.addEventListener('click', (e) => {
     const page = e.target.dataset.page;
     if (page) {
+        if(componentsOpen && page ==='components') {
+            showComponentsMenu();
+            return
+        };
         changeContent(page);
         if(page === 'home'){
+            componentsOpen = false;
             hideMenu();
         }
     }
@@ -12,6 +18,7 @@ document.addEventListener('click', (e) => {
     const menuBtn = e.target.closest('#contentMenu button');
     if (menuBtn) {
         changeInnerContent(menuBtn.id);
+        componentsOpen = true;
         hideMenu();
     }
 });
@@ -906,6 +913,7 @@ const sidebar = document.getElementById('sidebar');
 const showSidebar = document.getElementById('show-sidebar');
 const showSidebarButton = document.getElementById('show-sidebar-button');
 const closeSidebarButton = document.getElementById('close-sidebar-button');
+const contentMenu = document.getElementById('contentMenu');
 
 sidebar.style.display = "none";
 
@@ -925,6 +933,11 @@ function hideMenu(){
     showSidebar.style.display = "block";
     const contentMenu = document.getElementById('contentMenu');
     contentMenu.style.display = "none";
+}
+
+function showComponentsMenu(){
+    const contentMenu = document.getElementById('contentMenu');
+    contentMenu.style.display = "block";
 }
 
 
