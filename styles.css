@@ -4,25 +4,24 @@ body{
     height: 100vh;
     display: flex;
 }
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5em;
+h1 { 
+  font-size: 2.2rem; 
+  font-weight: 600; 
 }
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5em;
+h2 { 
+  font-size: 1.8rem; 
+  font-weight: 500;
 }
-
-h3 {
-    font-size: 1.5rem;
+h3 { 
+  font-size: 1.4rem; 
+  font-weight: 500; 
 }
-
-h4 {
-    font-size: 1.2rem;
+h4 { 
+  font-size: 1.2rem; 
+  font-weight: 500; 
 }
 p {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 pre{
     background: rgb(55, 55, 56);
@@ -120,31 +119,53 @@ pre{
 
 /*Styles för paneler*/
 .panel {
-    padding: 20px;
-    border-radius: 6px;
-    margin: 20px 0;
-    display: inline-block;
-    width: auto;
+  padding: 20px;
+  border-radius: 6px;
+  margin: 20px 0;
+  display: inline-block;
+  width: auto;
 }
-
-.panel.neutral {
-    background-color: white;
+.panel.neutral  {
+     background: rgb(175,173,173); 
 }
-
 .panel.positive {
-    background-color: rgb(138, 240, 138);
-    color: black;
+     background: rgb(138,240,138); 
 }
-
 .panel.negative {
-    background-color: rgb(235, 117, 117);
-    color: black;
+     background: rgb(235,117,117); 
 }
 
 /*Styles för form*/
-form {
-    max-width: 100%;
-    margin: 20px 0;
+.form {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 100%;
+  padding: 1rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.form label,
+.form input {
+  display: block;
+}
+
+.radio-group {
+  padding-left: 12px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
 }
 
 label {
@@ -326,4 +347,43 @@ button.negative:hover{
 }
 .colorschema.info{
     background-color: rgb(175, 172, 172);
+}
+.table{
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(8px);
+  width: auto;
+  border-collapse: collapse;
+}
+.table th, .table td {
+    border-bottom: 1px solid #050505;
+    padding: 10px;
+    text-align: left;
+    max-width: 200px;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.table tr:nth-child(even) {
+    background: rgba(17, 16, 16, 0.384);
+}
+
+.table th {
+    background: rgba(17, 16, 16, 0.384);
+}
+.table img {
+  max-width: 150px;
+  max-height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.table tr:hover{
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+  transform: translateY(-2px);
+}
+.selected-row {
+  background: rgba(0, 150, 255, 0.35) !important;
+  transition: background 0.2s ease;
 }
