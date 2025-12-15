@@ -48,6 +48,7 @@ function changeContent(page){
                     <button id="panels">Panels</button>
                     <button id="forms">Forms</button>
                     <button id="messages">Messages</button>
+                    <button id="wrappers">Wrappers</button>
                     <button id="colorSchema">ColorSchema</button>
                 </div>   
                 <div id="componentContent">
@@ -508,6 +509,78 @@ export default function SimpleSelectableTable() {
                 such as "alert('message')" and "confirm('do you really want to do that?)"</p>
                 <button onclick="alert('This is an alert message!')">Show Alert</button>
                 <button onclick="confirm('Do you really want to proceed?')">Show Confirm</button>
+                `;
+                break;
+        case 'wrappers':
+            componentDiv.innerHTML = `
+                <h1>Wrappers</h1>
+                <p>Wrappers are used to contain main content areas with consistent styling.</p>
+                <h3>This wrapper is for an inline flex box</h3>
+                <p>Used to wrap content in a flexible box that centers and spaces items evenly.</p>
+                <pre>
+                    <code>
+                    JSX:
+&quot;import &#39;./ContentBox.css&#39;
+
+export default function ContentBox({ children }) {
+    return (
+        &lt;div className=&quot;contentbox&quot;&gt;
+            &lt;div className=&quot;content-inner&quot;&gt;
+                {children}
+            &lt;/div&gt;
+        &lt;/div&gt;
+    );
+} &quot;
+
+                    CSS:
+.contentbox {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.2rem;
+}
+.content-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+
+
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(8px);
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.content-inner h2 {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+                    </code>
+                </pre>
+                <h3>This wrapper is used for cards-like representations of data in the application</h3>
+                <p>Used to wrap in a Grid which expands to allow as many cards as possible up to a certain max width limit of the cards of 260px</p>
+                <p>once that limit is exceeded it wraps to a new row</p>
+                <pre>
+                    <code>
+                    JSX:
+&quot;import &#39;./GridWrapper.css&#39;
+export default function GridWrapper({children}){
+    return(
+        &lt;div className=&quot;gridwrapper&quot;&gt;
+            {children}
+        &lt;/div&gt;
+    )
+}&quot;
+                    CSS:
+.gridwrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+}
+
                 `;
                 break;
         case "colorSchema":
