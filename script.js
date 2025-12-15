@@ -509,6 +509,13 @@ export default function SimpleSelectableTable() {
                 such as "alert('message')" and "confirm('do you really want to do that?)"</p>
                 <button onclick="alert('This is an alert message!')">Show Alert</button>
                 <button onclick="confirm('Do you really want to proceed?')">Show Confirm</button>
+                <pre>
+                    <code>
+alert('This is an alert message!');
+
+confirm('Do you really want to proceed?');
+                    </code>
+                </pre>
                 `;
                 break;
         case 'wrappers':
