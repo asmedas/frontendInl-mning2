@@ -47,6 +47,7 @@ function changeContent(page){
                     <button id="loading">Loading Icons</button>
                     <button id="panels">Panels</button>
                     <button id="forms">Forms</button>
+                    <button id="messages">Messages</button>
                     <button id="colorSchema">ColorSchema</button>
                 </div>   
                 <div id="componentContent">
@@ -500,6 +501,15 @@ export default function SimpleSelectableTable() {
             `;
             console.log('Forms content loaded');
             break;
+        case 'messages':
+            componentDiv.innerHTML = `
+                <h1>Messages</h1>
+                <p>We do not use any custom messages for this application. we are merely using what is arleady built in,
+                such as "alert('message')" and "confirm('do you really want to do that?)"</p>
+                <button onclick="alert('This is an alert message!')">Show Alert</button>
+                <button onclick="confirm('Do you really want to proceed?')">Show Confirm</button>
+                `;
+                break;
         case "colorSchema":
     componentDiv.innerHTML = `
         <h1>Color Schema</h1>
